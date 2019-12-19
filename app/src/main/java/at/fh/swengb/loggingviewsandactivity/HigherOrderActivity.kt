@@ -10,10 +10,10 @@ class HigherOrderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_higher_order)
         myHigherOrderFunction { x -> x*102 }
-        kotlinHigherOrderWithList()
+        //kotlinHigherOrderWithList()
     }
 
-    private fun kotlinHigherOrderWithList() {
+    /* private fun kotlinHigherOrderWithList() {
         val list = LessonRepository.lessonsList()
         val bloder = Lecturer("Lukas Bloder")
 
@@ -26,6 +26,8 @@ class HigherOrderActivity : AppCompatActivity() {
         val avgLecture = list.map{it.ratingAverage()}.average()
         Log.e("avg", avgLecture.toString())
     }
+
+     */
 
     private fun myHigherOrderFunction(param: (Int) -> Int) {
         if (param(6) == 612) {

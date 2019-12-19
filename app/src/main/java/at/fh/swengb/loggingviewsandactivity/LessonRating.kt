@@ -1,5 +1,8 @@
 package at.fh.swengb.loggingviewsandactivity
 
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
 class LessonRating(val ratingValue: Float, val feedback: String) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
