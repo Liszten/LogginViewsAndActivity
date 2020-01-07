@@ -113,9 +113,40 @@ object LessonRepository {
         })
     }
 
-    fun lessonById(id: String): Lesson? {
-        return lessons.find { it.id == id }
+    fun lessonById(id: String, success: (lesson:Lesson) -> Unit, error: (errorMessage: String) -> Unit) {
+        //return lessons.find { it.id == id }
+        LessonApi.retrofitService.lessonById(id).enqueue(object: Callback<Lesson> {
+            override fun onFailure(call: Call<Lesson>, t: Throwable) {
+                error("The call failed")
+            }
+
+            override fun onResponse(call: Call<Lesson>, response: Response<Lesson>) {
+                val responseBody = response.body()
+                if (response.isSuccessful && responseBody != null) {
+                    success(responseBody)
+                } else {
+                    error("Something went wrong")
+                }
+            }
+        })
     }
 
-    fun rateLesson(id: String, rating: LessonRating) = lessonById(id)?.ratings?.add(rating)
+    //fun rateLesson(id: String, rating: LessonRating) = lessonById(id)?.ratings?.add(rating)
+
+    fun rateLesson(id: String, rating: LessonRating, success: (unit:Unit) -> Unit, error: (errorMessage: String) -> Unit) {
+        LessonApi.retrofitService.rateLesson(id, rating).enqueue(object : Callback<Unit> {
+            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                error("The call failed")
+            }
+
+            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                val responseBody = response.body()
+                if (response.isSuccessful && responseBody != null) {
+                    success(responseBody)
+                } else {
+                    error("Something went wrong")
+                }
+            }
+        })
+    }
 }

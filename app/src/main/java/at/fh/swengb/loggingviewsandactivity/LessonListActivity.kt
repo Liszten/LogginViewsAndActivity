@@ -38,7 +38,7 @@ class LessonListActivity : AppCompatActivity() {
             },
             error = {
                 // handle error
-                Log.e("LesssonListError", it)
+                Log.e("LessonListError", it)
             }
         )
 
