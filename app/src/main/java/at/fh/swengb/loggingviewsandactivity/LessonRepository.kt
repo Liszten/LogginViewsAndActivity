@@ -6,6 +6,7 @@ import retrofit2.Response
 
 
 object LessonRepository {
+    /*
     private val lessons: List<Lesson>
 
     init {
@@ -94,6 +95,8 @@ object LessonRepository {
             )
         )
     }
+
+     */
 
     fun lessonsList(success: (lessonList: List<Lesson>) -> Unit, error: (errorMessage: String) -> Unit) {
         LessonApi.retrofitService.lessons().enqueue(object: Callback<List<Lesson>> {

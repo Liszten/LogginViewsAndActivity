@@ -9,7 +9,8 @@ class Lesson(val id: String,
              val topic: String,
              val type: LessonType,
              val lecturers: List<Lecturer>,
-             val ratings: MutableList<LessonRating>) {
+             val ratings: MutableList<LessonRating>,
+             val imageUrl: String) {
 
     fun ratingAverage(): Float = ratings.map { it.ratingValue }.average().toFloat()
 

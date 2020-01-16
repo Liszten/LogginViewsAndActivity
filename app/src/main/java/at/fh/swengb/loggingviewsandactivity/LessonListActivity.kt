@@ -15,6 +15,7 @@ class LessonListActivity : AppCompatActivity() {
     val lessonAdapter = LessonAdapter() {
         val implicitIntent = Intent(this, LessonRatingActivity::class.java)
         implicitIntent.putExtra(EXTRA_LESSON_ID, it.id)
+        implicitIntent.putExtra(EXTRA_LESSON_NAME, it.name)
         startActivityForResult(implicitIntent, ADD_OR_EDIT_RATING_REQUEST)
     }
 
@@ -56,6 +57,7 @@ class LessonListActivity : AppCompatActivity() {
 
     companion object {
         val EXTRA_LESSON_ID = "LESSON_ID_EXTRA"
+        val EXTRA_LESSON_NAME = "LESSON_ID_NAME"
         val ADD_OR_EDIT_RATING_REQUEST = 1
     }
 
@@ -78,7 +80,8 @@ class LessonListActivity : AppCompatActivity() {
                         "name": "Sanja Illes"
                     }
                 ],
-                "ratings": []
+                "ratings": [],
+                "imageUrl": ""
             }
         """
         val result = jsonAdapter.fromJson(json)

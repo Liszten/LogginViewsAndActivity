@@ -1,4 +1,8 @@
 <resources>
-    <string name="app_name">LoggingViewsAndActivity</string>
-    <string name="lesson_button_string">Lessons</string>
+    <string name="app_name" translatable="false">LoggingViewsAndActivity</string>
+    <string name="lesson_button_string" translatable="false">Lessons</string>
+    <string name="share">Share</string>
+    <string name="item01">Banana</string>
+    <string name="item02">ILikeFood</string>
+    <string name="logout">Please leave now!</string>
 </resources>
